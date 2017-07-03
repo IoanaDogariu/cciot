@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+//Constructor for Parking Lot
+function parkingLot(idParking, nameParking, totalSpots, latitude, parking_longitude, city)
+{
+  //parameter constructed
+  this.idParking = idParking;
+  this.nameParking = nameParking;
+  this.totalSpots = totalSpots;
+  this.latitude = latitude;
+  this.parking_longitude = parking_longitude;
+  this.city = city;
+  
+  //defaultly constructed
+  //list of all the parkingSpots we'll use
+  this.parkingSpots = []; 
+  //returns true if there is free spot... unused actually
+  this.hasFreePlaces = function()
+  {
+     //todo
+  };
+
+  this.updateParkingInfo = function()
+  {
+     //todo
+  };
+}
+
+//constructor for spots
+function parkingSpot(idSpot, nameSpot, xPosition, yPosition)
+{
+  this.idSpot = idSpot;
+  this.nameSpot = nameSpot;
+  this.xPosition = xPosition;
+  this.yPosition = yPosition;
+
+  //defaultly constructed to be true
+  this.isFree = true;
+}
+
+</script>
+</head>
+	<body>
+	</body>
+</html>
