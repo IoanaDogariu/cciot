@@ -39,6 +39,10 @@ function parkingLot(idParking, nameParking, totalSpots, latitude, parking_longit
       .html(this.parkingSpots[i].nameSpot+" : "+this.parkingSpots[i].isFree);
     }
     $(".free").html("<br>Total Spots: "+this.hasFreePlaces());
+    if(this.hasFreePlaces() == 0)
+    {$(".free").attr("style","color:red;");}
+    else
+    {$(".free").attr("style","color:green;");}
   };
 }
 
@@ -55,11 +59,11 @@ function parkingSpot(idSpot, nameSpot, xPosition, yPosition)
 }
 
 var myPark = new parkingLot(1, "My Parking Lot", 15, 5, 3, "Timisoara");
-var spot1 = new parkingSpot(11, "A1", 1, 1);
-var spot2 = new parkingSpot(12, "A2", 1, 2);
-
-myPark.parkingSpots.push(spot1);
-myPark.parkingSpots.push(spot2);
+myPark.parkingSpots.push(new parkingSpot(11, "A1", 1, 1));
+myPark.parkingSpots.push(new parkingSpot(12, "A2", 1, 2));
+myPark.parkingSpots.push(new parkingSpot(13, "A3", 1, 3));
+myPark.parkingSpots.push(new parkingSpot(21, "B1", 2, 1));
+myPark.parkingSpots.push(new parkingSpot(22, "B2", 2, 2));
 
 $(document).ready(function(){
   $("body").append($("<div></div>").attr("id", myPark.idParking)); 
@@ -71,15 +75,14 @@ $(document).ready(function(){
         $("<div></div>")
           .attr("id", myPark.parkingSpots[i].idSpot)
           .attr("class","parking_spot")
-          .append(myPark.parkingSpots[i].nameSpot+" : "+myPark.parkingSpots[i].isFree)
       );
   }
 
   $("#"+myPark.idParking)
     .append($("<div></div>")
     .attr("class","free")
-    .append("<br>Total Spots: "+myPark.parkingSpots.length));
-
+    );
+  myPark.updateParkingInfo();
 });
 
 
