@@ -77,6 +77,7 @@ $(document).ready(function(){
 
   $("#"+myPark.idParking)
     .append($("<div></div>")
+    .attr("class","free")
     .append("<br>Total Spots: "+myPark.parkingSpots.length));
 
 });
