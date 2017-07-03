@@ -58,9 +58,11 @@ $(document).ready(function(){
     $("#"+myPark.idParking).append(
         $("<div></div>")
           .attr("id", myPark.parkingSpots[i].idSpot)
+          .attr("class","parking_spot")
+          .append(myPark.parkingSpots[i].nameSpot+" : "+myPark.parkingSpots[i].isFree)
       );
   }
-  
+
   $("#"+myPark.idParking)
     .append($("<div></div>")
     .append("<br>Total Spots: "+myPark.parkingSpots.length));
