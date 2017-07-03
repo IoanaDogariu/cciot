@@ -49,6 +49,11 @@ var spot2 = new parkingSpot(12, "A2", 1, 2);
 myPark.parkingSpots.push(spot1);
 myPark.parkingSpots.push(spot2);
 
+$(document).ready(function(){
+  $("body").append($("<div></div>").attr("id", myPark.idParking)); 
+});
+
+
 </script>
 </head>
 	<body>
