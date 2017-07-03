@@ -51,6 +51,20 @@ myPark.parkingSpots.push(spot2);
 
 $(document).ready(function(){
   $("body").append($("<div></div>").attr("id", myPark.idParking)); 
+  $("#"+myPark.idParking).append("<h1>"+myPark.nameParking+"</h1>");
+  
+  for (var i = 0; i < myPark.parkingSpots.length; i++) 
+  {
+    $("#"+myPark.idParking).append(
+        $("<div></div>")
+          .attr("id", myPark.parkingSpots[i].idSpot)
+      );
+  }
+  
+  $("#"+myPark.idParking)
+    .append($("<div></div>")
+    .append("<br>Total Spots: "+myPark.parkingSpots.length));
+
 });
 
 
