@@ -21,12 +21,24 @@ function parkingLot(idParking, nameParking, totalSpots, latitude, parking_longit
   //returns true if there is free spot... unused actually
   this.hasFreePlaces = function()
   {
-     //todo
+      var count = 0;
+    for (var i = 0; i < this.parkingSpots.length; i++) 
+    {
+        if(this.parkingSpots[i].isFree == true)
+          {
+            count++;
+          }
+    }
+        return count;
   };
-
   this.updateParkingInfo = function()
   {
-     //todo
+    for (var i = 0; i < this.parkingSpots.length; i++) 
+    {
+      $("#"+this.parkingSpots[i].idSpot)
+      .html(this.parkingSpots[i].nameSpot+" : "+this.parkingSpots[i].isFree);
+    }
+    $(".free").html("<br>Total Spots: "+this.hasFreePlaces());
   };
 }
 
@@ -69,6 +81,29 @@ $(document).ready(function(){
 
 });
 
+
+$(document).on('click', 'div.parking_spot', function () 
+{
+  var id = $(this).attr('id');
+
+  for (var i = 0; i < myPark.parkingSpots.length; i++) 
+  {
+
+    if(myPark.parkingSpots[i].idSpot == id)
+    {
+      if(myPark.parkingSpots[i].isFree == true)
+      {
+        myPark.parkingSpots[i].isFree = false;
+      }
+      else
+      {
+        myPark.parkingSpots[i].isFree = true;
+      }
+      myPark.updateParkingInfo();
+    }
+  }
+}
+);
 
 </script>
 </head>
